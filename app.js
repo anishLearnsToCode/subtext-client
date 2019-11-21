@@ -29,9 +29,11 @@ io.on('connection', function(socket) {
     });
 
     socket.on('addMessage',function(data){
-        if(data.to) {
+        console.log(data);
+        if (data.to) {
             connectedSockets[data.to].emit('messageAdded',data);
-        }else {
+            console.log(data);
+        } else {
             socket.broadcast.emit('messageAdded',data);
         }
     });
